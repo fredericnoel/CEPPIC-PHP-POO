@@ -1,16 +1,13 @@
 <?php
 
-require_once './classes/Voiture.php';
+spl_autoload_register(function($className) {
+    require './classes/' . $className . '.php';
+});
 
-$voiture1 = new Voiture();
-$voiture1->couleur = "rouge";
-$voiture1->masse = 1200;
-$voiture1->vitesse = 30;
+$voiture1 = new Voiture("vert", 1200, "BMW");
 
-echo $voiture1->afficherEnergieCinetique();
-echo "<br />";
-$voiture1->masse = 1190;
-echo $voiture1->afficherEnergieCinetique();
+$voiture1->setCouleur("noir");
+echo $voiture1->getCouleur();
 
 
 /*
